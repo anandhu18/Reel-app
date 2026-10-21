@@ -31,7 +31,7 @@ app.use('/videos', express.static(OUT));
 app.get('/api/config', (_req, res) => {
   res.json({
     claude: Boolean(process.env.ANTHROPIC_API_KEY),
-    pexels: Boolean(process.env.PEXELS_API_KEY),
+    pexels: Boolean(process.env.PEXELS_API_KEY || process.env.PIXABAY_API_KEY),
     voice: voiceEnabled(),
   });
 });
